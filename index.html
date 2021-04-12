@@ -1,0 +1,51 @@
+<html>
+<head>
+  <title>PlatziMediaPlayer.js</title>
+  <link
+  rel="stylesheet"
+  href="https://necolas.github.io/normalize.css/8.0.1/normalize.css"
+  />
+  <link rel="stylesheet" href="./assets/index.css" />
+</head>
+
+<body>
+  <header>
+    <h1>PlatziMediaPlayer.js</h1>
+    <p>An extensible media player.</p>
+  </header>
+  
+  <main class="container">
+    <video class="movie">
+      <source src="./assets/ejercicio.mp4" />
+    </video>
+    
+    <button>Play/Pause</button>
+  </main>
+  
+  <script>
+    // declaramos los objetos con los que trabajaremos
+    const video = document.querySelector('video');
+    const button = document.querySelector('button');
+    
+    // creamos un prototipo de MediaPlayer
+    function MediaPlayer(config){
+      this.media = config.el;
+    }
+    
+    // Generamos los métodos de el prototipo que creamos
+    MediaPlayer.prototype.play = function(){
+      if(!this.media.paused){
+        this.media.pause()
+      } else {
+        this.media.play();
+      }
+    }
+    
+    // declaramos el player y le enviamos el objeto que vamos a configurar
+    const player = new MediaPlayer({ el: video });
+    
+    // le colocamos el evento al boton para que ejecute el método recien creado
+    button.onclick = () => player.play();
+  </script>
+</body>
+</html>
