@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scope | Platzi</title>
+</head>
+<body>
+    <a href="/ejercicios/">Go back</a>
+    <p><em>Abre la consola</em></p>
+
+    <script src="https://unpkg.com/jquery@3.3.1/dist/jquery.js"></script>
+
+    <script>
+        // Global Scope
+        //var message = 'Hello, platzi!'
+        //var $ = function (message) {
+        //    console.log('Say: ' + message)
+        //}
+
+        // Function Scope
+        /* Func con error*/
+        function printNumbers(params) {
+            // JS va a declararla en un entorno global
+            for(var i = 0; i < 10; i++){
+                setTimeout(function () {
+                    // Imprime 10 veces 10, ya que el setTimeout va a retrasarce al ejecutarce
+                    // por lo que al imprimirlo ya va a tener el valor de 10
+                    console.log('Number: ' + i);
+                }, 100);
+            }
+        }
+
+        /* Func con solución */
+        function printNumbers2(params) {
+            for(var i = 0; i < 10; i++){
+                function eventuallyPrintNumber(n) {
+                    setTimeout(function () {
+                    console.log('Number: ' + n);
+                }, 100);
+                }
+
+                eventuallyPrintNumber(i);
+            }
+        }
+
+        // printNumbers()
+        // printNumbers2()
+
+        // Block Scope
+        function printNumbers2(params) {
+            for(let i = 0; i < 10; i++){
+                function eventuallyPrintNumber(n) {
+                    setTimeout(function () {
+                    console.log('Number: ' + n);
+                }, 100);
+                }
+
+                eventuallyPrintNumber(i);
+            }
+        }
+
+        // Module Scope
+        
+
+    </script>
+</body>
+</html>

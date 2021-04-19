@@ -22,30 +22,6 @@
     <button>Play/Pause</button>
   </main>
   
-  <script>
-    // declaramos los objetos con los que trabajaremos
-    const video = document.querySelector('video');
-    const button = document.querySelector('button');
-    
-    // creamos un prototipo de MediaPlayer
-    function MediaPlayer(config){
-      this.media = config.el;
-    }
-    
-    // Generamos los métodos de el prototipo que creamos
-    MediaPlayer.prototype.play = function(){
-      if(!this.media.paused){
-        this.media.pause()
-      } else {
-        this.media.play();
-      }
-    }
-    
-    // declaramos el player y le enviamos el objeto que vamos a configurar
-    const player = new MediaPlayer({ el: video });
-    
-    // le colocamos el evento al boton para que ejecute el método recien creado
-    button.onclick = () => player.play();
-  </script>
+  <script type="module" src="./assets/index.js"></script>
 </body>
 </html>
