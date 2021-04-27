@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Closures</title>
+</head>
+<body>
+    <a href="/ejercicos/">Go back</a>
+    <p><em>Abre la consola</em></p>
+    <script>
+
+        // Los closures no spermite hacer features que el lenguaje no trae
+
+        // Creamos una función que se llama automaticamente
+        // Se llama IIFE Immediately Invoked Function Expression
+        (function() {
+            let color = 'green';
+
+            function printColor() {
+                console.log(color);
+            }
+
+            //printColor()
+        })();
+
+        function makeColorPrinter(color) {
+            let colorMessage = `The color is ${color}`;
+
+            return function () {
+                console.log(colorMessage)
+            }
+        }
+        
+        let greenColorPrinter = makeColorPrinter('Green');
+        //console.log(greenColorPrinter())
+
+        // Variable privada
+
+        // const counter = {
+        //     count: 3,
+        // };
+
+        // El count es global y es accesible desde la consola
+        // console.log(counter.count)
+
+        function makeCounter(n) {
+            let count = n
+
+            return {
+                increase: function () {
+                    count = count + 1;
+                },
+                decrease: function () {
+                    count = count -1;
+                },
+                getCount: function () {
+                    return count;
+                }
+            }
+        }
+
+        let counter = makeCounter(7)
+
+        // Con esto evitamos que una variable sea accesible desde la consola y pueda ser cambiado
+        console.log('The count is: ', counter.getCount())
+        counter.increase()
+        console.log('The count is: ', counter.getCount())
+        counter.decrease()
+        counter.decrease()
+        console.log('the count is: ', counter.getCount())
+        
+    </script>
+</body>
+</html>

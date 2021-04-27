@@ -1,12 +1,20 @@
 // Importamos el archivo donde tenemos el core del player
 import MediaPlayer from './MediaPlayer.js'
+import AutoPlay from './Plugins/AutoPlay.js'
 
 // declaramos los objetos con los que trabajaremos
 const video = document.querySelector('video');
-const button = document.querySelector('button');
+const btnPlay = document.querySelector('#btn-play');
+const btnMute = document.querySelector('#btn-mute');
 
 // declaramos el player y le enviamos el objeto que vamos a configurar
-const player = new MediaPlayer({ el: video });
+const player = new MediaPlayer({ 
+    el: video, 
+    plugins: [new AutoPlay()] 
+});
 
 // le colocamos el evento al boton para que ejecute el método recien creado
-button.onclick = () => player.play();
+btnPlay.onclick = () => player.togglePlay();
+
+// le colocamos el evento de mute o unmuted
+btnMute.onclick = () => player.toggleMute();
