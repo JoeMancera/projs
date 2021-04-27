@@ -10,7 +10,7 @@ const btnMute = document.querySelector('#btn-mute');
 // declaramos el player y le enviamos el objeto que vamos a configurar
 const player = new MediaPlayer({ 
     el: video, 
-    plugins: [new AutoPlay()] 
+    //plugins: [new AutoPlay()] 
 });
 
 // le colocamos el evento al boton para que ejecute el método recien creado
