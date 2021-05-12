@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>call, apply y bind</title>
+</head>
+<body>
+    <a href="/ejercicios/">Go tu back</a>
+    <h1> 
+        call, apply y bind
+    </h1>
+    <p><em>Abre la consola</em></p>
+    <ul>
+        <li class="call-to-action">Aprender</li>
+        <li class="call-to-action">Aprender más</li>
+        <li class="call-to-action">¡Nunca pares de aprender!</li>
+    </ul>
+    <script>
+        //*** establece this usando 'call' ***//
+        function saludar() {
+            console.log(`Hola, soy ${this.name} ${this.lastname}`)
+        }
+
+        const richard ={
+            name: "Richard",
+            lastname: "Parker López"
+        }
+
+        // todas las funciones tiene call
+        saludar.call(richard)
+
+        // ahora con parámetros
+        function caminar(metros, direccion) {
+            console.log(`${this.name} camina ${metros} metros hacia ${direccion}` )
+        }
+
+        // los pasamos por parámetro a call despues de definir el this para la función
+        caminar.call(richard,500, "norte")
+
+        //*** establece this usando 'apply' ***//
+        // siguiendo el tema de call, enviamos los paràmetros pero en un arreglo
+        const valores = [600, "sur este"]
+        caminar.apply(richard, valores)
+
+        /*
+        Call - coma
+        Apply - arreglo
+        */
+
+        //*** establece this usando 'bind' ***//
+
+        const daniel = {
+            name:"Daniel",
+            lastname:"Ramos"
+        }
+
+        // Se construye la función el una variable con el this que va a llevar la función
+        const danielSaluda = saludar.bind(daniel)
+        danielSaluda()
+
+        // y una con parámetro
+        const danielCamina = caminar.bind(daniel)
+        danielCamina(300, "sur")
+
+        // y una con parámetro pero hardcodeado
+        const danielCaminaOtraVez = caminar.bind(daniel, 250, "sur")
+        danielCaminaOtraVez()
+
+        // y una con parámetro pero hardcodeado solo uno de los parámetros
+        const danielCaminaCien = caminar.bind(daniel, 100)
+        danielCaminaCien("noreste")
+
+         //*** NodeList ***//
+        // Cuando queremos recorrer algo que nos devuelva un NodeList como lo de acá 👇
+        const li = document.getElementsByClassName("call-to-action")
+        // li.forEach(item =>{
+        //     item.onclick = () => alert("Nuncapares de aprender!")
+        // })
+
+        //podemos hacer que el prototipo del array tenga como contexto, esa lista de nodos
+        // Adicional, le pasamos la función que necesitamos para la función que necesitamos
+        Array.prototype.forEach.call(li, item =>{
+             item.onclick = () => alert("Nunca pares de aprender!")
+        })
+
+    </script>
+</body>
+</html>
