@@ -1,0 +1,26 @@
+# EventLoop
+Hace parecer que JS sea miltihilo pero no lo es
+
+JS utiliza dos estructuras de datos stack y Memoy Heap
+
+stack
+Lleva rastro de donde está el programa
+
+Memoryheap
+Estructura desorganizada y aleatoria, variables, scope estructura
+
+
+stack - Push para colocar y Pop para quitar
+Esto se comporta como una pila, el primer plato colocado es el último en salir
+
+|   | |     | |             | |             |
+|   | |     | |             | |             |
+|   | |     | |             | |getMovies    |
+|   | |     | |renderList   | |renderList   |
+|   | |Main | |Main         | |Main         |
+
+Funciones -> Scope (variables)
+
+Queue -> encolamiento
+Primero en entrar primero en salir, Cola de tareas
+ 
