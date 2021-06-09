@@ -1,0 +1,18 @@
+v8
+
+Cuando el interpreter tiene el bytecode, tenemos un profliling data que es un observador de código el 
+cual revisa si se puede optimizar algo, por ejemplo en un loop que suma dos numeros
+esto hace que el profiling data tome esa function hot y la optimise, esto nos ayuda mucho para los tiempos
+de ejecución
+
+v8 - Chrome
+tiene solo una capa de optimización
+
+ SpiderMonkey - FireFox
+ tiene dos capas de optimización
+
+Chakra - Edge 
+tiene dos capas de optimización
+
+JavaScriptCore - Safari
+tiene tres capas de optimización de JS
