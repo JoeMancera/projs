@@ -1,6 +1,8 @@
 // Importamos el archivo donde tenemos el core del player
 import MediaPlayer from './MediaPlayer.js'
 import AutoPlay from './Plugins/AutoPlay.js'
+import AutoPause from './Plugins/AutoPause.js'
+
 
 // declaramos los objetos con los que trabajaremos
 const video = document.querySelector('video');
@@ -10,7 +12,7 @@ const btnMute = document.querySelector('#btn-mute');
 // declaramos el player y le enviamos el objeto que vamos a configurar
 const player = new MediaPlayer({ 
     el: video, 
-    plugins: [new AutoPlay()] 
+    plugins: [new AutoPlay(), new AutoPause()] 
 });
 
 // le colocamos el evento al boton para que ejecute el método recien creado
