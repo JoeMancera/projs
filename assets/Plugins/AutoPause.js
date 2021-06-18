@@ -5,6 +5,9 @@ class AutoPause {
 
         // this permanente, para que no combie la instancia del objeto
         this.handlerIntersection = this.handlerIntersection.bind(this);
+
+        // realizamos lo mismo que con el intersection, para que sea global
+        this.handlerVisibilityChange = this.handlerVisibilityChange.bind(this)
     }
     run(player) {
 
@@ -18,6 +21,8 @@ class AutoPause {
         })
 
         observer.observe(this.player.media);
+
+        document.addEventListener('visibilitychange', this.handlerVisibilityChange)
     }
 
     // le pasamos al handler intersector los objetos que estamos observando, en este caso el media
@@ -26,6 +31,16 @@ class AutoPause {
 
         const isVisible = entry.intersectionRatio >= this.threshold
         
+        if(isVisible){
+            this.player.play()
+        } else {
+            this.player.pause()
+        }
+    }
+
+    handlerVisibilityChange(){
+        const isVisible = document.visibilityState === "visible";
+
         if(isVisible){
             this.player.play()
         } else {
