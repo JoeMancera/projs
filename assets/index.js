@@ -20,3 +20,10 @@ btnPlay.onclick = () => player.togglePlay();
 
 // le colocamos el evento de mute o unmuted
 btnMute.onclick = () => player.toggleMute();
+
+// Si el navegador soporta serviceWorkers
+if('serviceWorker' in navigator){
+    navigator.serviceWorker.register('/sw.js').catch(
+        error => { console.log(error.message); }
+    )
+}
