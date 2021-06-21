@@ -87,3 +87,39 @@ function fullName(firstName:string, lastName:string = 'Mille'): string{
 
 const richard = fullName('Richard');
 console.log(richard);
+
+///////////////////////////////////////////////////////////////////////////////////
+
+// Interfaces
+// Nos permiten def la forma que tiene un objeto, nos permite evitar ellores y ayuda en completado
+
+interface Rectangulo{
+    ancho: number;
+    alto: number;
+    color?: Color   // Opcional
+}
+
+enum Color{
+    Rojo = "Rojo",
+    Verde = "Verde",
+}
+
+let rect:Rectangulo ={
+    ancho:4,
+    alto:6,
+    color: Color.Rojo
+}
+
+function area(r:Rectangulo) {
+    return r.alto * r.ancho;
+}
+
+const areaRect = area(rect);
+console.log(areaRect);
+
+// [object Object]
+console.log(rect.toString());
+
+rect.toString = function(){
+    return this.color ? `Un rectangulo de color ${this.color}`: `Un rectangulo sin color`;
+}
