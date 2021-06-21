@@ -1,7 +1,7 @@
 // Importamos el archivo donde tenemos el core del player
 import MediaPlayer from './MediaPlayer.js'
 import AutoPlay from './Plugins/AutoPlay.js'
-import AutoPause from './Plugins/AutoPause.js'
+import AutoPause from './Plugins/AutoPause.ts'
 
 
 // declaramos los objetos con los que trabajaremos

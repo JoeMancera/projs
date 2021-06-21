@@ -40,14 +40,16 @@ async function precache() {
 
     // añadimos recursos indispensables
     return cache.addAll([
-        '/',
-        '/index.html',
-        '/assets/index.js',
-        '/assets/MediaPlayer.js',
-        '/assets/Plugins/AutoPlay.js',
-        '/assets/Plugins/AutoPause.js',
-        '/assets/index.css',
-        '/assets/ejercicio.mp4',
+        // Comentamos para poder hacer ejercicio de clase en plugin AutoPause
+        // AL utilizar el parcel crea una carteta llamada dist por lo que los archivos no los va a encontrar
+        // '/',
+        // '/index.html',
+        // '/assets/index.js',
+        // '/assets/MediaPlayer.js',
+        // '/assets/Plugins/AutoPlay.js',
+        // '/assets/Plugins/AutoPause.js',
+        // '/assets/index.css',
+        // '/assets/ejercicio.mp4',
     ])
 
 }
