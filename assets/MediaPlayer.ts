@@ -2,13 +2,16 @@
 
 // Refactorizamos para que typescript nos resuelva esto como una clase
 class MediaPlayer {
+    media: HTMLMediaElement;
+    plugins: Array<any>;
+
     constructor(config) {
         this.media = config.el;
         this.plugins = config.plugins || [];
 
-        this._initPlugins();
+        this.initPlugins();
     }
-    _initPlugins() {
+    private initPlugins() {
         // vamos a agregarle setter y getters
         const player = {
             play: () => this.play(),
@@ -24,7 +27,7 @@ class MediaPlayer {
             }
         };
         this.plugins.forEach(plugin => {
-            plugin.run(player);
+            plugin.run(this);
         });
     }
     // Generamos los métodos de el prototipo que creamos

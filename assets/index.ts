@@ -1,13 +1,13 @@
 // Importamos el archivo donde tenemos el core del player
-import MediaPlayer from './MediaPlayer.js'
-import AutoPlay from './Plugins/AutoPlay.js'
-import AutoPause from './Plugins/AutoPause.ts'
+import MediaPlayer from './MediaPlayer'
+import AutoPlay from './Plugins/AutoPlay'
+import AutoPause from './Plugins/AutoPause'
 
 
 // declaramos los objetos con los que trabajaremos
 const video = document.querySelector('video');
-const btnPlay = document.querySelector('#btn-play');
-const btnMute = document.querySelector('#btn-mute');
+const btnPlay: HTMLMediaElement = document.querySelector('#btn-play');
+const btnMute: HTMLMediaElement = document.querySelector('#btn-mute');
 
 // declaramos el player y le enviamos el objeto que vamos a configurar
 const player = new MediaPlayer({ 
