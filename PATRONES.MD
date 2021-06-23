@@ -44,3 +44,40 @@ El libro que comenzó en el campo de patrones de diseño de software **Design Pa
 * > Cuando lo que tienes es un martillo todo te parece un cavo.
 
 [https://blog.codinghorror.com/head-first-design-patterns/](https://blog.codinghorror.com/head-first-design-patterns/)
+
+## Categorías
+
+### **Patrones creacionales**
+
+Proveen diferentes mecanismos para crear objetos
+* Abstract factory
+* Builder: Crear varios objetos a partir de uno base (jQuery `$('<h1 class="superbig">My favorite Pokemon</h1>);` -> `$('<h1 class="superbig">My favorite Pokemon</h1>).click(()=>{console.log('Llamando')});`)
+* Factory method
+* Prtotype
+* Singelton
+
+### **Patrones estructurales**
+
+Describen formas de componer objetos para formar nuevas estructuras flexibles y eficientes
+* Adapter (jQuery con compatibilidad de navegadores)
+* Bridge
+* Composite
+* Decoration
+* FaCade
+* Flyweight
+* Proxy: intercepta y calcula
+
+### **Patrones comportamiento**
+
+Gestiona algoritmos y responsabilidades entre objetos
+* Chain of responsability
+* Command
+* Interpreter
+* Iterator
+* Mediator
+* Memento
+* Observer: un objeto le pasa es estado a los demás
+* State
+* Strategy
+* Template Method
+* Visitor
