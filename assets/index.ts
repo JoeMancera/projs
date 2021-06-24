@@ -2,6 +2,7 @@
 import MediaPlayer from './MediaPlayer'
 import AutoPlay from './Plugins/AutoPlay'
 import AutoPause from './Plugins/AutoPause'
+import Ads from './Plugins/Ads/index'
 
 
 // declaramos los objetos con los que trabajaremos
@@ -12,7 +13,7 @@ const btnMute: HTMLMediaElement = document.querySelector('#btn-mute');
 // declaramos el player y le enviamos el objeto que vamos a configurar
 const player = new MediaPlayer({ 
     el: video, 
-    plugins: [new AutoPlay(), new AutoPause()] 
+    plugins: [new AutoPlay(), new AutoPause(), new Ads] 
 });
 
 // le colocamos el evento al boton para que ejecute el método recien creado

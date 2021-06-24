@@ -67,6 +67,7 @@ Describen formas de componer objetos para formar nuevas estructuras flexibles y 
 * Flyweight
 * Proxy: intercepta y calcula
 
+
 ### **Patrones comportamiento**
 
 Gestiona algoritmos y responsabilidades entre objetos
@@ -81,3 +82,15 @@ Gestiona algoritmos y responsabilidades entre objetos
 * Strategy
 * Template Method
 * Visitor
+
+## Singelton (Creacional)
+
+Es un patron que asegura que una clase solo tiene una instancia
+Esta única instancia puede ser consumida por cualquier otro objeto
+
+## Observer
+
+es un patrón que nos permite suscribir un observador a un objeto, esto para identificar un tipo especifico de cambios, el que necesitemos para ese escenario y una vez cumplamos con nuestro objetivo, poder desuscribrlo
+por ejemplo en un news letter, sockets o listeners
+
+Redux es una libreria que aplica este concepto de patrón
